@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Search Engine</title>
+</head>
+<body>
+    <h1>Mock Search Engine</h1>
+
+    <form id="searchForm">
+        <input type="text" name="q" id="searchBox">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        const data = [
+            "Selenium WebDriver Documentation",
+            "Getting Started with Selenium",
+            "Java Test Automation Best Practices"
+        ];
+
+        document.getElementById("searchForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const query = document.getElementById("searchBox")
+                    .value.toLowerCase();
+
+                const results = data.filter(item =>
+                    item.toLowerCase().includes(query)
+                );
+
+                const container = document.getElementById("results");
+
+                container.innerHTML = "";
+
+                results.forEach(item => {
+                    const div = document.createElement("div");
+                    div.className = "search-result";
+
+                    const heading = document.createElement("h3");
+                    heading.textContent = item;
+
+                    div.appendChild(heading);
+                    container.appendChild(div);
+                });
+            });
+    </script>
+</body>
+</html>

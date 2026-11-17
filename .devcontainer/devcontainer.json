@@ -1,0 +1,9 @@
+{
+  "name": "Java Selenium Interview",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [],
+  "postCreateCommand": "mvn -version",
+  "remoteUser": "vscode"
+}
